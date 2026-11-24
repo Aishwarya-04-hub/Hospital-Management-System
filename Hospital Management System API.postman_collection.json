@@ -1,0 +1,490 @@
+{
+  "info": {
+    "_postman_id": "8af21d60-1417-4178-85e3-489e98d1f9a1",
+    "name": "Hospital Management System API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "60391886",
+    "_collection_link": "https://go.postman.co/collection/60391886-8af21d60-1417-4178-85e3-489e98d1f9a1?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Patients",
+      "item": [
+        {
+          "name": "Create Patient - POST",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\n    pm.response.to.have.status(201);\n});\n\npm.test(\"Response body contains expected patient data\", function () {\n    const jsonData = pm.response.json();\n    pm.expect(jsonData).to.have.property(\"name\", \"Rahul Sharma\");\n    pm.expect(jsonData).to.have.property(\"email\", \"rahul.test@example.com\");\n    pm.expect(jsonData).to.have.property(\"_id\");\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "HospitalProject_Private_Key_2026"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Rahul Sharma\",\"email\":\"rahul.test@example.com\",\"age\":25,\"gender\":\"male\",\"phone\":\"9876543210\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/doctors",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "doctors"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Patients - GET",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/patients",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "patients"
+              ]
+            },
+            "description": "Generated from cURL: curl --request GET --url http://localhost:3000/patients"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Patient By ID - GET",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/patients/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "patients",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --request GET --url http://localhost:3000/patients/:id"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Patient - PATCH",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Updated Name\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/patients/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "patients",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --request PATCH --url http://localhost:3000/patients/:id --header \"Content-Type: application/json\" --data \"{\\\"name\\\":\\\"Updated Name\\\"}\""
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Patient - DELETE",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/patients/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "patients",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --request DELETE --url http://localhost:3000/patients/:id"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Doctors",
+      "item": [
+        {
+          "name": "Get All Doctors - GET",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/doctors",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "doctors"
+              ]
+            },
+            "description": "Generated from cURL: curl --request GET --url http://localhost:3000/doctors"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Doctor - POST",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Dr. John Smith\",\"email\":\"john.smith@hospital.com\",\"specialization\":\"Cardiology\",\"phone\":\"9876543210\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/doctors",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "doctors"
+              ]
+            },
+            "description": "Generated from cURL: curl --request POST --url http://localhost:3000/doctors --header \"Content-Type: application/json\" --data \"{\\\"name\\\":\\\"Dr. John Smith\\\",\\\"email\\\":\\\"john.smith@hospital.com\\\",\\\"specialization\\\":\\\"Cardiology\\\",\\\"phone\\\":\\\"9876543210\\\"}\""
+          },
+          "response": []
+        },
+        {
+          "name": "Get Doctor By ID - GET",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/doctors/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "doctors",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --request GET --url http://localhost:3000/doctors/:id"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Doctor - PATCH",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Dr. Updated Name\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/doctors/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "doctors",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --request PATCH --url http://localhost:3000/doctors/:id --header \"Content-Type: application/json\" --data \"{\\\"name\\\":\\\"Dr. Updated Name\\\"}\""
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Doctor - DELETE",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/doctors/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "doctors",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --request DELETE --url http://localhost:3000/doctors/:id"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Appointments",
+      "item": [
+        {
+          "name": "Create Appointment - POST",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"patientId\":\"123\",\"doctorId\":\"456\",\"date\":\"2026-12-01\",\"time\":\"10:00\",\"reason\":\"Checkup\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/appointments",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "appointments"
+              ]
+            },
+            "description": "Generated from cURL: curl --request POST --url http://localhost:3000/appointments --header \"Content-Type: application/json\" --data \"{\\\"patientId\\\":\\\"123\\\",\\\"doctorId\\\":\\\"456\\\",\\\"date\\\":\\\"2026-12-01\\\",\\\"time\\\":\\\"10:00\\\",\\\"reason\\\":\\\"Checkup\\\"}\""
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Appointments - GET",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/appointments",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "appointments"
+              ]
+            },
+            "description": "Generated from cURL: curl --request GET --url http://localhost:3000/appointments"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Appointment By ID - GET",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/appointments/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "appointments",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --request GET --url http://localhost:3000/appointments/:id"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Appointment - PATCH",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"date\":\"2026-12-05\",\"time\":\"11:00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/appointments/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "appointments",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --request PATCH --url http://localhost:3000/appointments/:id --header \"Content-Type: application/json\" --data \"{\\\"date\\\":\\\"2026-12-05\\\",\\\"time\\\":\\\"11:00\\\"}\""
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Appointment - DELETE",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/appointments/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "appointments",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --request DELETE --url http://localhost:3000/appointments/:id"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Medical Records",
+      "item": []
+    },
+    {
+      "name": "Authentication",
+      "item": []
+    },
+    {
+      "name": "Billing",
+      "item": []
+    },
+    {
+      "name": "Notifications",
+      "item": []
+    }
+  ]
+}
