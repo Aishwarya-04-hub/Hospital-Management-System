@@ -18,7 +18,6 @@ The Hospital Management System is a backend application developed using NestJS a
 3. Appointment Management
 4. Notification Management
 
-Additional modules should be listed here only after implementation and testing.
 
 ## Features
 - Create and manage patient records.
