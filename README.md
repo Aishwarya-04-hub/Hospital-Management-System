@@ -1,9 +1,9 @@
-# Hospital Management System API
+🏥Hospital Management System API
 
-## Project Overview
+📽️Project Overview
 The Hospital Management System is a backend application developed using NestJS and MongoDB. It provides REST APIs to manage patients, doctors, appointments and notifications.
 
-## Technologies Used
+👩‍💻 Technologies Used
 - Node.js
 - TypeScript
 - NestJS
@@ -13,10 +13,10 @@ The Hospital Management System is a backend application developed using NestJS a
 - Postman
 
 ## Main Modules
-1. Patient Management
-2. Doctor Management
-3. Appointment Management
-4. Notification Management
+1. Patient Management 😷
+2. Doctor Management 🧑‍⚕️
+3. Appointment Management 🈸
+4. Notification Management🔔
 
 
 ## Features
